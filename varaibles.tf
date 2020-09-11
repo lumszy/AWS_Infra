@@ -1,10 +1,10 @@
 variable "region" {
-  default = "ca-central-1"
+  default     = "us-east-1"
   description = "AWS Region"
 }
 
 variable "vpc_cidr" {
-  default = "10.0.0.0/16"
+  default     = "10.0.0.0/16"
   description = "VPC CIDR Block"
 }
 
@@ -34,32 +34,37 @@ variable "private_subnet_c_cidr" {
 
 variable "remote_state_bucket" {
   description = "Bucket name for layer 1 data source"
-  default = "testlab-uwa"
+  default     = "olumide-lab"
 }
 
 variable "remote_state_key" {
   description = "Key name for layer 1 remote state"
-  default = "layer1/infrastructure.tfstate"
+  default     = "terraform/infrastructure.tfstate"
 }
 
 variable "ec2_instance_type" {
   description = "EC2 Instance Type to Launch"
-  default = "t2.micro"
+  default     = "t2.micro"
 }
 
+#variable "key_pair_name" {
+#  default     = "pc"
+#  description = "Keypair to used in connecting to EC2 instances"
+#}
+
 variable "key_pair_name" {
-  default   = "pc"
-  description = "Keypair to used in connecting to EC2 instances"
+  default = "*****""
+  description = "EC2 Instances"
 }
 
 variable "max_instance_size" {
   description = "Maximum number of instances to launch"
-  default = "10"
+  default     = "10"
 }
 
 variable "min_instance_size" {
   description = "Minimum number of instances to launch"
-  default = "3"
+  default     = "3"
 }
 
 variable "tag_production" {
@@ -77,8 +82,8 @@ variable "tag_backend" {
 variable "amis" {
   type = "map"
   default = {
-    "ca-central-1" = "ami-07a182edcd7d04084"
-      }
+    "us-east-1" = "ami-00305e412d733e0bd"
+  }
 }
 
 
